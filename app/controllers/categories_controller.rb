@@ -39,11 +39,11 @@ end
 def destroy
   @category = Category.find(params[:id])
   @category.destroy
-  redirect_to articles_path
+  redirect_to categories_path
 end
 
 private
   def category_params
-    params.require(:article).permit(:title, :text)
+    params.require(:category).permit(:title, :description)
   end
 end
