@@ -1,7 +1,13 @@
 class CategoriesController < ApplicationController
   def index
-  @categories = Category.paginate(:page => params[:page], :per_page => 10)
-end
+    @search = Category.search(params[:q])
+   @categories = @search.result.paginate(:page => params[:page], :per_page => 10)
+  end
+
+ def search
+    index
+    render :index
+  end
 
 def show
   @category = Category.find(params[:id])

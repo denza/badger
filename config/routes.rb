@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   resources :pages
   resources :texts
   resources :links
-  resources :categories
+  resources :categories do
+    collection do
+      match 'search' => 'categories#search', via: [:get, :post], as: :search
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
