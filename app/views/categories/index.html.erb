@@ -30,7 +30,8 @@
                     </tbody>
                 </table>
                 
-                <%= will_paginate @categories %>
+                <%= will_paginate @categories, renderer: BootstrapPagination::Rails %>
+                
             </div>
         </div>
         <div class="panel-foot"></div>
