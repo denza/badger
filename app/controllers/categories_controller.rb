@@ -1,54 +1,54 @@
 class CategoriesController < ApplicationController
   def index
     @search = Category.search(params[:q])
-   @categories = @search.result.paginate(:page => params[:page], :per_page => 10)
+    @categories = @search.result.paginate(:page => params[:page], :per_page => 10)
   end
 
- def search
+  def search
     index
     render :index
   end
 
-def show
-  @category = Category.find(params[:id])
-end
-
-
-def new
-  @category = Category.new
-end
-
-def edit
-  @category = Category.find(params[:id])
-end
-
-def create
-  @category = Category.new(category_params)
-
-  if @category.save
-    redirect_to @category
-  else
-    render 'new'
+  def show
+    @category = Category.find(params[:id])
   end
-end
 
-def update
-  @category = Category.find(params[:id])
 
-  if @category.update(category_params)
-    redirect_to @category
-  else
-    render 'edit'
+  def new
+    @category = Category.new
   end
-end
 
-def destroy
-  @category = Category.find(params[:id])
-  @category.destroy
-  redirect_to categories_path
-end
+  def edit
+    @category = Category.find(params[:id])
+  end
 
-private
+  def create
+    @category = Category.new(category_params)
+
+    if @category.save
+      redirect_to @category
+    else
+      render 'new'
+    end
+  end
+
+  def update
+    @category = Category.find(params[:id])
+
+    if @category.update(category_params)
+      redirect_to @category
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @category = Category.find(params[:id])
+    @category.destroy
+    redirect_to categories_path
+  end
+
+  private
   def category_params
     params.require(:category).permit(:title, :description)
   end

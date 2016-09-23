@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+      <h3 class="panel-title">Links</h3>
+      </div>
+
+      <div class="panel-body">
+        <p>
+          <strong>Title:</strong>
+          <%= @link.url %>
+        </p>
+        <p>
+          <strong>Description:</strong>
+          <%= @link.description %>
+        </p>
+      </div>
+       <div class="panel-footer">
+        <div class="btn-group">
+          <%= link_to 'Back', links_path, class: "btn btn-warning" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        

@@ -2,9 +2,21 @@ Rails.application.routes.draw do
   get 'welcome/index'
   
   
-  resources :pages
-  resources :texts
-  resources :links
+  resources :pages do
+    collection do
+      match 'search' => 'pages#search', via: [:get, :post], as: :search
+    end
+  end
+  resources :texts do
+    collection do
+      match 'search' => 'texts#search', via: [:get, :post], as: :search
+    end
+  end
+  resources :links do
+    collection do
+      match 'search' => 'links#search', via: [:get, :post], as: :search
+    end
+  end
   resources :categories do
     collection do
       match 'search' => 'categories#search', via: [:get, :post], as: :search

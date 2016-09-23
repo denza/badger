@@ -25,6 +25,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'simple_form'
 
+gem 'validate_url'
+
 gem 'will_paginate', '~> 3.1.0'
 
 gem 'will_paginate-bootstrap'

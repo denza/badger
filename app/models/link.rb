@@ -1,3 +1,3 @@
 class Link < ActiveRecord::Base
-    #belongs_to :item, touch: true,polymorphic: true
+  validates :url,presence: true, :url => true
 end
